@@ -6,16 +6,12 @@ import sympy as sp
 import pandas as pd
 import os
 import sys
+import pkg_resources
 from scipy.interpolate import interp1d
 from scipy.optimize import least_squares
 
-module_path = os.path.abspath(os.path.join('..'))
-
-if module_path not in sys.path:
-    sys.path.append(module_path)
-
-from rs_models.econ_model import econ_model as em
-DATA_PATH = '../data/'
+from .econ_model import econ_model as em
+DATA_PATH = pkg_resources.resource_filename('pydivestparameters', 'data/')
 
 
 class ParameterFit:
